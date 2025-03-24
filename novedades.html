@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="owl_favicon.png" type="image/png"> <!-- Favicon añadido -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades - Owl Pirate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #000; /* Fondo negro */
+            color: #00ff00; /* Verde lima */
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            animation: flicker 1s infinite alternate;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 20px;
+            border-bottom: 2px solid #00ff00; /* Línea verde */
+            background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5); /* Sombra */
+            position: relative;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            color: #00ff00;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 20px;
+            border-top: 2px solid #00ff00; /* Línea verde */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+            box-shadow: 0 -4px 10px rgba(0, 255, 0, 0.5); /* Sombra */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            animation: text-flicker 1.5s infinite alternate;
+        }
+
+        .news-container {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 10px;
+            border: 1px solid #00ff00; /* Borde verde */
+            background-color: rgba(0, 255, 0, 0.1); /* Fondo verde claro */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5); /* Sombra */
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 255, 0, 0.2); /* Fondo verde semi-transparente */
+            border-radius: 8px;
+            transition: transform 0.3s ease; /* Efecto de transformación */
+        }
+
+        .news-item:hover {
+            transform: scale(1.02); /* Escala al pasar el mouse */
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.6); /* Sombra al pasar el mouse */
+        }
+
+        .news-item i {
+            font-size: 3em; /* Tamaño del ícono */
+            color: #00ff00; /* Color verde lima */
+            margin-bottom: 10px; /* Margen inferior */
+        }
+
+        .author {
+            font-size: 0.9em;
+            color: #00ff00; /* Verde lima */
+            margin-top: 5px;
+        }
+
+        @keyframes text-flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Tamaño de fuente más pequeño */
+            }
+
+            footer {
+                padding: 10px; /* Menos espacio en el pie de página */
+            }
+
+            nav a {
+                font-size: 0.9em; /* Tamaño de fuente más pequeño para la navegación */
+            }
+
+            .news-item {
+                padding: 10px; /* Menos espacio en los elementos de noticias */
+            }
+
+            .news-item i {
+                font-size: 2em; /* Tamaño del ícono más pequeño */
+            }
+        }
+
+        .youtube-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px; /* Ancho fijo para el logo */
+            height: 40px; /* Alto fijo para el logo */
+        }
+
+        .youtube-logo i {
+            font-size: 40px; /* Tamaño del ícono */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NOVEDADES</h1>
+        <nav>
+            <a href="main.html">Inicio</a>
+            <a href="peliculas.html">Películas</a>
+            <a href="animes.html">Animes</a>
+            <a href="aplicaciones.html">Aplicaciones</a>
+            <a href="juegos.html">Juegos</a>
+        </nav>
+        <a class="youtube-logo" href="https://www.youtube.com" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </header>
+
+    <div class="news-container">
+        <div class="news-item">
+            <i class="fas fa-laptop-code"></i> <!-- Icono de aplicaciones -->
+            <h2>Aplicaciones próximamente</h2>
+            <p>¡Atención! Pronto estaremos lanzando una serie de aplicaciones y programas de libre uso, totalmente seguros y libres de virus. Tendrás acceso a todas las herramientas necesarias para tu PC, así como a increíbles apps para Android, todo completamente activado y sin ningún costo. No te pierdas esta oportunidad de potenciar tu experiencia digital sin preocupaciones. ¡Mantente atento a nuestras publicaciones!</p>
+            <p class="author">Publicado por Owl Pirate</p>
+        </div>
+        <div class="news-item">
+            <i class="fas fa-film"></i> <!-- Icono de películas -->
+            <h2>Películas y Animes para ver gratis</h2>
+            <p>Nos emociona anunciar que estamos comprometidos a ofrecerte una experiencia única en el mundo del cine y el anime. A partir de ahora, estaremos subiendo periódicamente nuevas películas y series de anime para que disfrutes. Te invitamos a que nos recomiendes los títulos que más deseas ver. Ya sea una película que has estado esperando o ese anime del que todos hablan, ¡tus sugerencias son muy importantes para nosotros! Visita nuestro canal de YouTube y recomienda peliculas, animes incluso programas y aplicaciones para subir</p>
+            <p class="author">Publicado por Owl Pirate</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Owl Pirate. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

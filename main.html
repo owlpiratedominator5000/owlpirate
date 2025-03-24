@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OwlPirate</title>
+    <link rel="icon" href="owl_favicon.png" type="image/png"> <!-- Favicon añadido -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #000; /* Fondo negro */
+            color: #00ff00; /* Verde lima */
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            animation: flicker 1s infinite alternate;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            padding: 20px;
+            border-bottom: 2px solid #00ff00; /* Línea verde */
+            background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5); /* Sombra */
+            display: flex; /* Flexbox para alinear elementos */
+            justify-content: center; /* Centrar elementos */
+            align-items: center; /* Centrar verticalmente */
+        }
+        
+        footer {
+            padding: 20px;
+            border-top: 2px solid #00ff00; /* Línea verde */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+            box-shadow: 0 -4px 10px rgba(0, 255, 0, 0.5); /* Sombra */
+        }
+
+        .matrix-title {
+            font-size: 3.5em;
+            margin: 0;
+            white-space: nowrap; /* Evita que el texto se rompa en múltiples líneas */
+            overflow: hidden; /* Oculta el texto que se desborda */
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+
+        .search-container {
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            max-width: 400px;
+            padding: 10px;
+            border: 2px solid #00ff00; /* Borde verde */
+            background-color: black; /* Fondo negro */
+            color: lime; /* Texto verde lima */
+            font-size: 1.5em;
+            border-radius: 5px;
+            animation: pulse 1s infinite alternate;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease; /* Transición al enfocar */
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: cyan; /* Bordes cian al enfocar */
+        }
+
+        .boton {
+            padding: 10px 20px;
+            background-color: #00ff00; /* Fondo verde */
+            color: black; /* Texto negro */
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Efecto de transición */
+        }
+
+        .boton:hover {
+            background-color: rgb(1, 69, 31); /* Fondo verde oscuro al pasar el mouse */
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .service-container {
+            background-color: rgba(0, 255, 0, 0.8); /* Fondo verde semi-transparente */
+            color: black; /* Texto negro */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease; /* Efecto de transformación */
+        }
+
+        .service-container:hover {
+            transform: scale(1.05); /* Escala al pasar el mouse */
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.6); /* Sombra al pasar el mouse */
+        }
+
+        .service-container i {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 600px) {
+            .matrix-title {
+                font-size: 2em; /* Tamaño de fuente más pequeño */
+            }
+
+            input[type="text"] {
+                font-size: 1.2em; /* Tamaño de fuente más pequeño */
+            }
+
+            .boton {
+                font-size: 1.2em; /* Tamaño de fuente más pequeño */
+            }
+
+            footer {
+                padding: 10px; /* Menos espacio en el pie de página */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="matrix-title" id="matrix-title">Cargando...</h1>
+    </header>
+
+    <div>
+        <h2>SERVICIOS</h2>
+    </div>
+
+    <div class="services">
+        <div class="service-container">
+            <a href="peliculas.html" style="text-decoration: none; color: black;">
+                <i class="fas fa-film"></i>
+                <h2>Películas</h2>
+            </a>
+        </div>
+        <div class="service-container">
+            <a href="aplicaciones.html" style="text-decoration: none; color: black;">
+                <i class="fas fa-mobile-alt"></i> <!-- Icono de Aplicaciones -->
+                <h2>Aplicaciones</h2>
+            </a>
+        </div>
+        <div class="service-container">
+            <a href="juegos.html" style="text-decoration: none; color: black;">
+                <i class="fas fa-gamepad"></i> <!-- Icono de Juegos -->
+                <h2>Juegos</h2>
+            </a>
+        </div>
+        <div class="service-container">
+            <a href="animes.html" style="text-decoration: none; color: black;">
+                <i class="fas fa-tv"></i> <!-- Icono de Animes -->
+                <h2>Animes</h2>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Owl Pirate. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const titleElement = document.getElementById('matrix-title');
+        const targetText = 'OWL PIRATE';
+        const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+        function getRandomChar() {
+            return randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+        }
+
+        function animateTitle() {
+            let currentText = '';
+            const interval = setInterval(() => {
+                currentText = '';
+                for (let i = 0; i < targetText.length; i++) {
+                    currentText += Math.random() < 0.5 ? getRandomChar() : targetText[i];
+                }
+                titleElement.textContent = currentText;
+
+                if (Math.random() < 0.05) { // 5% de probabilidad de mostrar el texto correcto
+                    clearInterval(interval);
+                    titleElement.textContent = targetText; // Muestra el texto final
+                }
+            }, 100);
+        }
+
+        animateTitle();
+    </script>
+</body>
+</html>

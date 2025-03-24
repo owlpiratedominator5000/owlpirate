@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="owl_favicon.png" type="image/png"> <!-- Favicon añadido -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas gratis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto; /* Permitir el desplazamiento vertical */
+        }
+
+        h1 {
+            color: rgb(9, 173, 9);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            color: rgb(17, 205, 17);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .menu a:hover {
+            transform: scale(1.05);
+            color: green;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .listas_contenido {
+            text-align: left;
+            color: rgb(14, 186, 14);
+            list-style: none;
+            padding: 0;
+        }
+
+        .listas_contenido li {
+            padding: 5px 0;
+            cursor: pointer; /* Cambiar el cursor a pointer para indicar que es clickeable */
+        }
+
+        .listas_contenido li:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        footer {
+            color: rgb(14, 237, 14);
+            margin-top: 20px;
+        }
+
+        /* Estilos para el popup */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup iframe {
+            width: 640px;
+            height: 360px;
+            border: none;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<header>
+    <h1>VER PELÍCULAS GRATIS</h1>
+    <div class="menu">
+        <a href="main.html">Inicio</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="#">Contacto</a>
+    </div>
+</header>
+<body>
+    <div class="container">
+        <ul class="listas_contenido">
+            <li onclick="openPopup('https://fastream.to/embed-lpz64cw5npj7.html')">El Padrino</li>
+            <li onclick="openPopup('https://fastream.to/embed-pvx0mh335yki.html')">Forrest Gump</li>
+            <li onclick="openPopup('https://fastream.to/embed-bmr5k0hlt4h5.html')">La Lista de Schindler</li>
+            <li onclick="openPopup('https://fastream.to/embed-wdpfu2u8nktg.html')">Novocaine</li>
+            <li onclick="openPopup('https://fastream.to/embed-wp0ikoo2oryg.html')">Pulp Fiction</li>
+            <li onclick="openPopup('https://fastream.to/embed-zlv5rxnh0dal.html')">The Dark Knight</li>
+            <li onclick="openPopup('https://fastream.to/embed-lc2q4itvpj5j.html')">Contraataque</li>
+            <li onclick="openPopup('https://fastream.to/embed-houfw02mxwwv.html')">Heretic</li>
+            <li onclick="openPopup('https://fastream.to/embed-573nwplkvd5y.html')">Fight Club</li>
+            <li onclick="openPopup('https://fastream.to/embed-ql5h4ww8br7u.htm')">El Silencio de los Corderos</li>
+            <li onclick="openPopup('https://fastream.to/embed-cvfm8sxd9491.html')">Matrix</li>
+            <li onclick="openPopup('https://fastream.to/embed-kud8liwido70.html')">Gladiador</li>
+            <li onclick="openPopup('https://fastream.to/embed-e5l4xffo4dbz.html')">Matrix-Reloaded</li>
+            <li onclick="openPopup('https://fastream.to/embed-zihi7zrbr9in.html')">Avatar</li>
+            <li onclick="openPopup('https://fastream.to/embed-bbhsup014k7e.html')">Vengadores: Endgame</li>
+            <li onclick="openPopup('https://fastream.to/embed-7gx1g20zioz9.html')">Jurassic Park</li>
+            <li onclick="openPopup('https://fastream.to/embed-ahz8zg5ikgjl.html')">Jurassic Park - El mundo perdido</li>
+            <li onclick="openPopup('https://fastream.to/embed-4ldtj7y91fmj.html')">El Gran Lebowski</li>
+            <li onclick="openPopup('https://fastream.to/embed-r4a8yyqos0de.html')">Los Increíbles</li>
+            <li onclick="openPopup('https://fastream.to/embed-jzrgf8u8ryv2.html')">El Resplandor</li>
+            <li onclick="openPopup('https://fastream.to/embed-o7xx5o2ee9na.html')">Interstellar</li>
+            <li onclick="openPopup('https://fastream.to/embed-277gur4jssuu.html')">Mad Max: Furia en el Camino</li>
+            <li onclick="openPopup('https://fastream.to/embed-kpgr3llbg7ju.html')">Canina</li> 
+            <li onclick="openPopup('https://fastream.to/embed-amxaxhgjnowp.html')">Shrek</li>
+            <li onclick="openPopup('https://fastream.to/embed-qmzh6kug0z27.html')">Harry Potter y la Piedra Filosofal</li>
+            <li onclick="openPopup('https://fastream.to/embed-0g0bysb4tt3b.html')">Moana</li>
+        </ul>
+    </div>
+
+    <div class="popup" id="popup">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        <iframe id="video-frame" src="" allowfullscreen></iframe>
+    </div>
+
+    <footer>© 2025 Owl Pirate. Todos los derechos reservados.</footer>
+
+    <script>
+        function openPopup(url) {
+            document.getElementById('video-frame').src = url;
+            document.getElementById('popup').classList.add('active');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('active');
+            document.getElementById('video-frame').src = ""; // Limpiar el src para detener el video
+        }
+    </script>
+</body>
+</html>

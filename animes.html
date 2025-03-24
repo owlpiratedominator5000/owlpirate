@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="owl_favicon.png" type="image/png"> <!-- Favicon añadido -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto; /* Permitir el desplazamiento vertical */
+        }
+
+        h1 {
+            color: rgb(9, 173, 9);
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            color: rgb(17, 205, 17);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .menu a:hover {
+            transform: scale(1.05);
+            color: green;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .listas_contenido {
+            text-align: left;
+            color: rgb(14, 186, 14);
+            list-style: none;
+            padding: 0;
+        }
+
+        .listas_contenido li {
+            padding: 5px 0;
+            cursor: pointer; /* Cambiar el cursor a pointer para indicar que es clickeable */
+        }
+
+        .listas_contenido li:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        footer {
+            color: rgb(14, 237, 14);
+            margin-top: 20px;
+        }
+
+        /* Estilos para el popup */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-content {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            width: 90%;
+            max-width: 640px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transform: translateY(-30px);
+            transition: transform 0.3s ease;
+        }
+
+        .popup.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .popup.active .popup-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: rgb(255, 0, 0);
+        }
+
+        .popup iframe {
+            width: 100%;
+            height: 360px;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<header>
+    <h1>VER ANIME GRATIS</h1>
+    <div class="menu">
+        <a href="main.html">Inicio</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="#">Contacto</a>
+    </div>
+</header>
+<body>
+    <div class="container">
+        <ul class="listas_contenido">
+            <li onclick="openSeriesPopup('Blue Lock')">Blue Lock</li>
+            <li onclick="openSeriesPopup('Chainsaw Man')">Chainsaw Man</li>
+        </ul>
+    </div>
+
+    <div class="popup" id="series-popup">
+        <span class="close-btn" onclick="closePopup('series-popup')">×</span>
+        <div class="popup-content">
+            <h2 id="series-title"></h2>
+            <ul id="season-list"></ul>
+        </div>
+    </div>
+
+    <div class="popup" id="episode-popup">
+        <span class="close-btn" onclick="closePopup('episode-popup')">×</span>
+        <div class="popup-content">
+            <h2 id="episode-title"></h2>
+            <ul id="episode-list"></ul>
+        </div>
+    </div>
+
+    <div class="popup" id="video-popup">
+        <span class="close-btn" onclick="closePopup('video-popup')">×</span>
+        <iframe id="video-frame" src="" allowfullscreen></iframe>
+    </div>
+
+    <footer>© 2025 Owl Pirate. Todos los derechos reservados.</footer>
+
+    <script>
+        const seriesData = {
+            'Blue Lock': {
+                seasons: {
+                    'Temporada 1': {
+                        episodes: [
+                            { title: 'Capítulo 1', url: 'https://fastream.to/embed-2h517ggihhue.html' },
+                            { title: 'Capítulo 2', url: 'https://fastream.to/embed-mvtypdzer0ez.html' },
+                            { title: 'Capítulo 3', url: 'https://fastream.to/embed-8pk4zfkdzadx.html' },
+                            { title: 'Capítulo 4', url: 'https://fastream.to/embed-vmbgkx0n62wu.html' },
+                            { title: 'Capítulo 5', url: 'https://fastream.to/embed-7d5qkw5ks25l.html' },
+                            { title: 'Capítulo 6', url: 'https://fastream.to/embed-l4kunmqgxcge.html' },
+                            { title: 'Capítulo 7', url: 'https://fastream.to/embed-fqjpd2ukox9o.html' },
+                            { title: 'Capítulo 8', url: 'https://fastream.to/embed-i0rja4iq4w9m.html' },
+                            { title: 'Capítulo 9', url: 'https://fastream.to/embed-cauv4bx7yja8.html' },
+                            { title: 'Capítulo 10', url: 'https://fastream.to/embed-0wk33kfwqt18.html' },
+                            { title: 'Capítulo 11', url: 'https://fastream.to/embed-i9n55i4uwig2.html' },
+                            { title: 'Capítulo 12', url: 'https://fastream.to/embed-ek9l7inzpi0b.html' },
+                            { title: 'Capítulo 13', url: 'https://fastream.to/embed-2m58p6b5vgrq.html' },
+                            { title: 'Capítulo 14', url: 'https://fastream.to/embed-w30wbwpta5ob.html' },
+                            { title: 'Capítulo 15', url: 'https://fastream.to/embed-v0mikvqcmis0.html' },
+                            { title: 'Capítulo 16', url: 'https://fastream.to/embed-83qtwcz1z01g.html' },
+                            { title: 'Capítulo 17', url: 'https://fastream.to/embed-irzfz57m00ri.html' },
+                            { title: 'Capítulo 18', url: 'https://fastream.to/embed-xc2lbyyyo2kt.html' },
+                            { title: 'Capítulo 19', url: 'https://fastream.to/embed-w17961rzmrjl.html' },
+                            { title: 'Capítulo 20', url: 'https://fastream.to/embed-mto18jkv76g5.html' },
+                            { title: 'Capítulo 21', url: 'https://fastream.to/embed-hqtrj0zf4ar6.html' },
+                            { title: 'Capítulo 22', url: 'https://fastream.to/embed-ja0qvt2f0os2.html' },
+                            { title: 'Capítulo 23', url: 'https://fastream.to/embed-c7x12vy6u25t.html' },
+                            { title: 'Capítulo 24', url: 'https://fastream.to/embed-pecrd6h5y729.html' },
+                        ]
+                    },
+                    'Temporada 2': {
+                        episodes: [
+                            { title: 'Capítulo 1', url: '' },
+                        ]
+                    }
+                }
+            },
+            'Chainsaw Man': {
+                seasons: {
+                    'Temporada 1': {
+                        episodes: [
+                            { title: 'Capítulo 1', url: 'https://fastream.to/embed-dgbhgkpi25mp.html' },
+                            { title: 'Capítulo 2', url: 'https://fastream.to/embed-s1vo755k6k6o.html' },
+                            { title: 'Capítulo 3', url: 'https://fastream.to/embed-nc118iltdgkn.html' },
+                            { title: 'Capítulo 4', url: 'https://fastream.to/embed-my3l5pnoe6eq.html' },
+                            { title: 'Capítulo 5', url: 'https://fastream.to/embed-l7adx2icflir.html' },
+                            { title: 'Capítulo 6', url: 'https://fastream.to/embed-4zuat3en313h.html' },
+                            { title: 'Capítulo 7', url: 'https://fastream.to/embed-xd1it7e2o7wq.html' },
+                            { title: 'Capítulo 8', url: 'https://fastream.to/embed-6khtq9yeyu3r.html' },
+                            { title: 'Capítulo 9', url: 'https://fastream.to/embed-vlh49e23p1og.html' },
+                            { title: 'Capítulo 10', url: 'https://fastream.to/embed-qrzwx5xwmrba.html' },
+                            { title: 'Capítulo 11', url: 'https://fastream.to/embed-ojncekav0547.html' },
+                            { title: 'Capítulo 12', url: 'https://fastream.to/embed-995lyo7xjbsu.html' },
+                        ]
+                    }
+                }
+            },
+            // Agrega más series y temporadas aquí
+        };
+
+        function openSeriesPopup(series) {
+            document.getElementById('series-title').innerText = series;
+            const seasons = seriesData[series].seasons;
+            const seasonList = document.getElementById('season-list');
+            seasonList.innerHTML = ''; // Limpiar lista anterior
+
+            for (const season in seasons) {
+                const li = document.createElement('li');
+                li.innerText = season;
+                li.onclick = () => openEpisodePopup(series, season);
+                seasonList.appendChild(li);
+            }
+
+            document.getElementById('series-popup').classList.add('active');
+        }
+
+        function openEpisodePopup(series, season) {
+            document.getElementById('episode-title').innerText = series + ' - ' + season;
+            const episodes = seriesData[series].seasons[season].episodes;
+            const episodeList = document.getElementById('episode-list');
+            episodeList.innerHTML = ''; // Limpiar lista anterior
+
+            for (const episode of episodes) {
+                const li = document.createElement('li');
+                li.innerText = episode.title;
+                li.onclick = () => openVideoPopup(episode.url);
+                episodeList.appendChild(li);
+            }
+
+            closePopup('series-popup');
+            document.getElementById('episode-popup').classList.add('active');
+        }
+
+        function openVideoPopup(url) {
+            document.getElementById('video-frame').src = url;
+            document.getElementById('video-popup').classList.add('active');
+            closePopup('episode-popup');
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+            if (popupId === 'video-popup') {
+                document.getElementById('video-frame').src = ""; // Limpiar el src para detener el video
+            }
+        }
+    </script>
+</body>
+</html>
